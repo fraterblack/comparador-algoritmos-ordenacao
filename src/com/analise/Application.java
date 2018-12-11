@@ -8,12 +8,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-public class Aplicacao extends JFrame {
+public class Application extends JFrame {
 	private static final long serialVersionUID = 7947693168368714055L;
 	
 	private JDesktopPane desktop;
 	
-	public Aplicacao() {
+	public Application() {
 		super();
 
 		desktop = new JDesktopPane();
@@ -24,7 +24,7 @@ public class Aplicacao extends JFrame {
 		//Full screen
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		
-		Algoritmos frame = new Algoritmos();
+		Algorithms frame = new Algorithms();
 
 		try {
 			desktop.add(frame);
@@ -38,11 +38,9 @@ public class Aplicacao extends JFrame {
 	}
 	
 	public static void main(final String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				Aplicacao aplicacao = new Aplicacao();
-				aplicacao.setVisible(true);
-			}
+		SwingUtilities.invokeLater(() -> {
+			Application application = new Application();
+			application.setVisible(true);
 		});
 	}
 }

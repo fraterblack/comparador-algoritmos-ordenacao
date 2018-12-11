@@ -16,7 +16,7 @@ import javax.swing.JSpinner;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
 
-public class Algoritmos extends JInternalFrame {
+public class Algorithms extends JInternalFrame {
 	private static final long serialVersionUID = 649962792853519117L;
 
 	/**
@@ -26,7 +26,7 @@ public class Algoritmos extends JInternalFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Algoritmos frame = new Algoritmos();
+					Algorithms frame = new Algorithms();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,12 +38,12 @@ public class Algoritmos extends JInternalFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Algoritmos() {
+	public Algorithms() {
 		setBounds(100, 100, 690, 384);
 		getContentPane().setLayout(null);
 		
 		JPanel pnlAlgOrd = new JPanel();
-		pnlAlgOrd.setBorder(new TitledBorder(new BevelBorder(BevelBorder.RAISED, new Color(192, 192, 192), new Color(192, 192, 192), new Color(192, 192, 192), new Color(192, 192, 192)), "Algoritmos de Ordena\u00E7\u00E3o", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pnlAlgOrd.setBorder(new TitledBorder(new BevelBorder(BevelBorder.RAISED, new Color(192, 192, 192), new Color(192, 192, 192), new Color(192, 192, 192), new Color(192, 192, 192)), "Algorithms de Ordena\u00E7\u00E3o", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		pnlAlgOrd.setBounds(36, 74, 276, 212);
 		getContentPane().add(pnlAlgOrd);
 		pnlAlgOrd.setLayout(null);
@@ -133,45 +133,41 @@ public class Algoritmos extends JInternalFrame {
 		separator_1.setBounds(29, 17, 604, 2);
 		getContentPane().add(separator_1);
 		
-		JButton btnProcessar = new JButton("Processar");
-		btnProcessar.setBounds(533, 311, 100, 23);
-		getContentPane().add(btnProcessar);
+		JButton btnProcess = new JButton("Processar");
+		btnProcess.setBounds(533, 311, 100, 23);
+		getContentPane().add(btnProcess);
 		
-		btnProcessar.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//Pega a complexidade dependendo do caso selecionado
-				String complexity;
-				if (rbtMelhorCaso.isSelected()) {
-					complexity = ArrayHelper.COMPLEXITY_BEST;
-					;
-				} else if (rbtrPiorCaso.isSelected()) {
-					complexity = ArrayHelper.COMPLEXITY_WORSE;
-				} else {
-					complexity = ArrayHelper.COMPLEXITY_MEDIUM;
-				}
-
-				new AlgorithmsResult(
-						Integer.parseInt(spnQuantVal.getValue().toString()), //Qtde comparações
-						complexity, //Complexidade array para ordenação
-						
-						chbTempo.isSelected(), //Tempo
-						chbComp.isSelected(), //Comparações
-						chbTrocas.isSelected(), //Trocas
-
-						chbInsertionSort.isSelected(),
-						chbSelectionSort.isSelected(),
-						chbBubbleSort.isSelected(),
-						chbCombSort.isSelected(),
-						chbMergeSort.isSelected(),
-						chbQuickSort.isSelected(),
-						chbRadixSort.isSelected(),
-						chbHeapSort.isSelected(),
-						chbTimkSort.isSelected(),
-						chbCountingSort.isSelected()
-				).setVisible(true);
+		btnProcess.addActionListener(e -> {
+			//Pega a complexidade dependendo do caso selecionado
+			String complexity;
+			if (rbtMelhorCaso.isSelected()) {
+				complexity = ArrayHelper.COMPLEXITY_BEST;
+				;
+			} else if (rbtrPiorCaso.isSelected()) {
+				complexity = ArrayHelper.COMPLEXITY_WORSE;
+			} else {
+				complexity = ArrayHelper.COMPLEXITY_MEDIUM;
 			}
-		});
 
+			new AlgorithmsResult(
+					Integer.parseInt(spnQuantVal.getValue().toString()), //Qtde comparações
+					complexity, //Complexidade array para ordenação
+
+					chbTempo.isSelected(), //Tempo
+					chbComp.isSelected(), //Comparações
+					chbTrocas.isSelected(), //Trocas
+
+					chbInsertionSort.isSelected(),
+					chbSelectionSort.isSelected(),
+					chbBubbleSort.isSelected(),
+					chbCombSort.isSelected(),
+					chbMergeSort.isSelected(),
+					chbQuickSort.isSelected(),
+					chbRadixSort.isSelected(),
+					chbHeapSort.isSelected(),
+					chbTimkSort.isSelected(),
+					chbCountingSort.isSelected()
+			).setVisible(true);
+		});
 	}
 }
