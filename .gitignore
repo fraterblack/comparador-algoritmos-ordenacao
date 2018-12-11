@@ -1,0 +1,9 @@
+/.metadata
+/.idea
+/.settings
+/.recommenders
+/bin
+.classpath
+.project
+Teste.iml
+/out
