@@ -1,5 +1,6 @@
 package com.analise;
 
+import com.analise.Algoritms.BubbleSort;
 import com.analise.Algoritms.InsertionSort;
 
 import javax.swing.JDialog;
@@ -189,10 +190,10 @@ public class AlgorithmsResult extends JDialog {
 			InsertionSort insertionSort = new InsertionSort();
 
 			//Aciona a função de ordenação
-			insertionSort.sort(array);
+			insertionSort.sort(array.clone());
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper( "Insertion Sort", insertionSort.getTime(), insertionSort.getComparison(), insertionSort.getChanges()));
+			results.put(results.size() + 1, new ResultWrapper( "Insertion Sort", insertionSort.getTime(), insertionSort.getComparisons(), insertionSort.getChanges()));
 		}
 
 		//SELECTION SORT
@@ -208,13 +209,13 @@ public class AlgorithmsResult extends JDialog {
 
 		//BUBBLE SORT
 		if (processBubbleSort) {
-
+			BubbleSort bubbleSort = new BubbleSort();
 
 			//Aciona a função de ordenação
-
+			bubbleSort.sort(array.clone());
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper("Bubble Sort", 0, 0, 0));
+			results.put(results.size() + 1, new ResultWrapper( "Bubble Sort", bubbleSort.getTime(), bubbleSort.getComparisons(), bubbleSort.getChanges()));
 		}
 
 		//COMB SORT

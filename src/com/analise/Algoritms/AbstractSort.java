@@ -4,14 +4,14 @@ import com.analise.ExecutionTimer;
 
 public abstract class AbstractSort {
     protected ExecutionTimer timer = new ExecutionTimer();
-    protected static int comparisons = 0;
-    protected static int changes = 0;
+    protected int comparisons = 0;
+    protected int changes = 0;
 
     public ExecutionTimer timer() {
         return timer;
     }
 
-    public int getComparison() {
+    public int getComparisons() {
         return comparisons;
     }
 
