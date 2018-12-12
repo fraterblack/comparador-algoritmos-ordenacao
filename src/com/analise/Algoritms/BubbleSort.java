@@ -13,7 +13,6 @@ public class BubbleSort extends AbstractSort {
                 comparisons++;
                 if (array[j] < array[i]) {
                     changes++;
-                    changes++;
                     int aux = array[i];
                     array[i] = array[j];
                     array[j] = aux;

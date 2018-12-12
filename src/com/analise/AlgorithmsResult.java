@@ -1,7 +1,6 @@
 package com.analise;
 
-import com.analise.Algoritms.BubbleSort;
-import com.analise.Algoritms.InsertionSort;
+import com.analise.Algoritms.*;
 
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -190,7 +189,7 @@ public class AlgorithmsResult extends JDialog {
 			InsertionSort insertionSort = new InsertionSort();
 
 			//Aciona a função de ordenação
-			insertionSort.sort(array.clone());
+			printArray("Insertion Sort", insertionSort.sort(array.clone()));
 
 			//Resultado
 			results.put(results.size() + 1, new ResultWrapper( "Insertion Sort", insertionSort.getTime(), insertionSort.getComparisons(), insertionSort.getChanges()));
@@ -198,13 +197,13 @@ public class AlgorithmsResult extends JDialog {
 
 		//SELECTION SORT
 		if (processSelectionSort) {
-
+			SelectionSort selectionSort = new SelectionSort();
 
 			//Aciona a função de ordenação
-
+			printArray("Selection Sort", selectionSort.sort(array.clone()));
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper("Selection Sort", 0, 0, 0));
+			results.put(results.size() + 1, new ResultWrapper("Selection Sort", selectionSort.getTime(), selectionSort.getComparisons(), selectionSort.getChanges()));
 		}
 
 		//BUBBLE SORT
@@ -212,7 +211,7 @@ public class AlgorithmsResult extends JDialog {
 			BubbleSort bubbleSort = new BubbleSort();
 
 			//Aciona a função de ordenação
-			bubbleSort.sort(array.clone());
+			printArray("Bubble Sort", bubbleSort.sort(array.clone()));
 
 			//Resultado
 			results.put(results.size() + 1, new ResultWrapper( "Bubble Sort", bubbleSort.getTime(), bubbleSort.getComparisons(), bubbleSort.getChanges()));
@@ -220,56 +219,56 @@ public class AlgorithmsResult extends JDialog {
 
 		//COMB SORT
 		if (processCombSort) {
-
+			CombSort combSort = new CombSort();
 
 			//Aciona a função de ordenação
-
+			printArray("Comb Sort", combSort.sort(array.clone()));
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper("Comb Sort", 0, 0, 0));
+			results.put(results.size() + 1, new ResultWrapper("Comb Sort", combSort.getTime(), combSort.getComparisons(), combSort.getChanges()));
 		}
 
 		//MERGE SORT
 		if (processMergeSort) {
-
+			MergeSort mergeSort = new MergeSort();
 
 			//Aciona a função de ordenação
-
+			printArray("Merge Sort", mergeSort.sort(array.clone()));
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper("Merge Sort", 0, 0, 0));
+			results.put(results.size() + 1, new ResultWrapper( "Merge Sort", mergeSort.getTime(), mergeSort.getComparisons(), mergeSort.getChanges()));
 		}
 
 		//HEAP SORT
 		if (processHeapSort) {
-
+			HeapSort heapSort = new HeapSort();
 
 			//Aciona a função de ordenação
-
+			printArray("Heap Sort", heapSort.sort(array.clone()));
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper("Heap Sort", 0, 0, 0));
+			results.put(results.size() + 1, new ResultWrapper( "Heap Sort", heapSort.getTime(), heapSort.getComparisons(), heapSort.getChanges()));
 		}
 		//QUICK SORT
 		if (processQuickSort) {
-
+			QuickSort quickSort = new QuickSort();
 
 			//Aciona a função de ordenação
-
+			printArray("Quick Sort", quickSort.sort(array.clone()));
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper("Quick Sort", 0, 0, 0));
+			results.put(results.size() + 1, new ResultWrapper( "Quick Sort", quickSort.getTime(), quickSort.getComparisons(), quickSort.getChanges()));
 		}
 
 		//RADIX SORT
 		if (processRadixSort) {
-
+			RadixSort radixSort = new RadixSort();
 
 			//Aciona a função de ordenação
-
+			printArray("Radix Sort", radixSort.sort(array.clone()));
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper("Radix Sort", 0, 0, 0));
+			results.put(results.size() + 1, new ResultWrapper( "Radix Sort", radixSort.getTime(), radixSort.getComparisons(), radixSort.getChanges()));
 		}
 
 		//TIM SORT
@@ -293,6 +292,14 @@ public class AlgorithmsResult extends JDialog {
 			//Resultado
 			results.put(results.size() + 1, new ResultWrapper("Counting Sort", 0, 0, 0));
 		}
+	}
+
+	private void printArray(String algorithmName, int[] array) {
+		System.out.println("...................... " + algorithmName + " ......................");
+		for (int i = 0; i < array.length; i++) {
+			System.out.println(array[i]);
+		}
+		System.out.println("....................................................................");
 	}
 
 	private class ResultWrapper {
