@@ -1,4 +1,4 @@
-# Projeto Interdisciplinar da Computação
+# Projeto Análise de Algoritmos
 ##### Alunos: Edvaldo da Rosa, Gilberto Topanotti e Eduardo Elias Américo da Silveira
 
 #### Apresentação: 11/12/2018
