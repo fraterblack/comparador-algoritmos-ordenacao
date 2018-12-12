@@ -21,13 +21,13 @@ public class QuickSort extends AbstractSort {
 
     private void sort(int array[], int startIndex, int finishIndex) {
         if (startIndex < finishIndex) {
-            int pivotPosition = separar(array, startIndex, finishIndex);
+            int pivotPosition = split(array, startIndex, finishIndex);
             sort(array, startIndex, pivotPosition - 1);
             sort(array, pivotPosition + 1, finishIndex);
         }
     }
 
-    private int separar(int[] array, int startIndex, int finishIndex) {
+    private int split(int[] array, int startIndex, int finishIndex) {
         int pivot = array[startIndex];
         int i = startIndex + 1, j = finishIndex;
         while (i <= j) {

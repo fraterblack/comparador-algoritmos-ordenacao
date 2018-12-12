@@ -273,24 +273,24 @@ public class AlgorithmsResult extends JDialog {
 
 		//TIM SORT
 		if (processTimSort) {
-
+			TimSort timSort = new TimSort();
 
 			//Aciona a função de ordenação
-
+			printArray("Tim Sort", timSort.sort(array.clone()));
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper("Tim Sort", 0, 0, 0));
+			results.put(results.size() + 1, new ResultWrapper( "Tim Sort", timSort.getTime(), timSort.getComparisons(), timSort.getChanges()));
 		}
 
 		//COUNTING SORT
 		if (processCountingSort) {
-
+			CountingSort countingSort = new CountingSort();
 
 			//Aciona a função de ordenação
-
+			printArray("Counting Sort", countingSort.sort(array.clone()));
 
 			//Resultado
-			results.put(results.size() + 1, new ResultWrapper("Counting Sort", 0, 0, 0));
+			results.put(results.size() + 1, new ResultWrapper( "Counting Sort", countingSort.getTime(), countingSort.getComparisons(), countingSort.getChanges()));
 		}
 	}
 
